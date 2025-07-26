@@ -36,11 +36,11 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t Assignment3_MLOps:latest .
+        docker build -t assignment3_mlops:latest .
 
     - name: Test Docker container
       run: |
-        docker run --rm Assignment3_MLOps:latest python src/predict.py
+        docker run --rm assignment3_mlops:latest python src/predict.py
 
     - name: Login to Docker Hub
       if: success()
@@ -52,6 +52,6 @@ jobs:
     - name: Push to Docker Hub
       if: success()
       run: |
-        docker tag Assignment3_MLOps:latest ${{ secrets.DOCKER_USERNAME }}/Assignment3_MLOps:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/Assignment3_MLOps:latest
+        docker tag assignment3_mlops:latest ${{ secrets.DOCKER_USERNAME }}/assignment3_mlops:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/assignment3_mlops:latest
         echo "Docker image pushed successfully!"
