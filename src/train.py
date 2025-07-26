@@ -58,7 +58,7 @@ def train_model(X, y):
 def save_model(model, test_data):
     """Save the trained model and test data"""
     # Create models directory if it doesn't exist
-    os.makedirs("C:\\Users\\rsoni\\PycharmProjects\\Assignment3_MLOps\\models", exist_ok=True)
+    os.makedirs("models", exist_ok=True)
 
     # Save the model
     joblib.dump(model, "models/linear_model.joblib")
